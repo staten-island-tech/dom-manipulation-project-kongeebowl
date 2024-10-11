@@ -14,14 +14,39 @@ DOMSelectors.button.addEventListener("click", function () {
 
   DOMSelectors.box.insertAdjacentHTML(
     "beforeend",
-    `<div class="card"> 
-        <h3>${title}</h3>
-        <img src="${image}" alt="Card Image" class="card-img">
+    `<div class="card" id="c${n}"> 
+        <h2>${title}</h2>
+        <img src="${image}" alt="" class="card-img">
         <p>${description}</p>
+        <button type="button" id="b${n}></button>
       </div>
       `
   );
+  document.querySelector(`#b${n}`).addEventListener("click", function (event) {
+    event.preventDefault();
+    document.querySelector(`#p${n}`).remove();
+  });
+
   DOMSelectors.titleInput.value = "";
   DOMSelectors.imageInput.value = "";
   DOMSelectors.descInput.value = "";
 });
+
+function run() {
+  let n = 0;
+  DOMSelectors.button.addEventListener("click", function (event) {
+    if (
+      !(
+        DOMSelectors.titleInput.value === "" ||
+        DOMSelectors.descInput.value === ""
+      )
+    ) {
+      event.preventDefault();
+      box(n);
+      clearInput();
+      n += 1;
+    }
+  });
+}
+
+run();

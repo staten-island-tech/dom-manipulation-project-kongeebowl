@@ -8,11 +8,14 @@ input {
     background-color: cornsilk;
 }
 
-#container-box {
-    background-color: black;
-    font-size: 2vh;
-    color: cornsilk;
+h2 {
+    font-size: 3rem;
     text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 2rem;
 }
 
 .header {
@@ -46,3 +49,4 @@ input {
     object-fit: contain;
     max-width: 90%;
 }
+
