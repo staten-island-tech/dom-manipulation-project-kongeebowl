@@ -7,28 +7,23 @@
     <title>DOM Manipulation</title>
   </head>
   <body>
-    <h1 class="header">FREE ROBUX 🤑💲💳🤑💲💳</h1>
-    <h2>
-      Put in your credit card information down below and you'll get free
-      robux!!!!!!
-    </h2>
-    <form action="">
-      <label for="card">Card Title: </label>
-      <input type="text" name="card" id="card" /><br /><br />
+    <h1 class="header">make your own card</h1>
 
-      <label for="card-img">Card Image: </label>
-      <input type="text" name="card-img" id="card-img" /><br /><br />
+    <label for="card">Card Title: </label>
+    <input type="text" name="card" id="input-title" /><br />
 
-      <label for="card-desc">Description: </label>
-      <input type="text" name="card-desc" id="card-desc" /><br /><br />
+    <label for="card-img">Card Image URL: </label>
+    <input type="text" name="card-img" id="input-img" /><br />
 
-      <button type="submit">Submit</button>
-    </form>
+    <label for="card-desc">Description: </label>
+    <input type="text" name="card-desc" id="input-desc" /><br />
 
+    <button type="button" id="btn">Create Card</button>
+
+    <div id="container"></div>
     <script src="index.js"></script>
   </body>
 </html>
-
 <!-- 
 -Create an object called “DOMSelectors” to hold your DOM Selectors 
 -Create a function that creates an object and calls the following functions 
@@ -36,3 +31,16 @@
 -Create a function that clears the input fields after injecting the object 
 -Create a function to remove an object after they have been created
  -->
+
+<!--       <form action="">
+        <label for="card">Card Title: </label>
+        <input type="text" name="card" id="card" /><br /><br />
+
+        <label for="card-img">Card Image: </label>
+        <input type="text" name="card-img" id="card-img" /><br /><br />
+
+        <label for="card-desc">Description: </label>
+        <input type="text" name="card-desc" id="card-desc" /><br /><br />
+
+        <button type="button" id="btn">Submit</button>
+      </form> -->

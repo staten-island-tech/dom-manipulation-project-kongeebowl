@@ -1,8 +1,48 @@
-* {
-    font-size: 10px;
+body {
+    text-align: center;
+    background-color: rgb(64, 65, 112);
+    color: cornsilk;
+}
+
+input {
+    background-color: cornsilk;
+}
+
+#container-box {
+    background-color: black;
+    font-size: 2vh;
+    color: cornsilk;
     text-align: center;
 }
 
 .header {
-    font-size: 5rem;
+    font-size: 7rem;
+}
+
+#container {
+    display: flex;
+    width: 90vw;
+    margin: 2rem auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    width: 30%;
+    height: 40vw;
+    border: 5px solid black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2rem 1px;
+    background-color: rgb(130,104,177);
+    box-shadow: 7px 7px 5px rgb(86,58,136);
+}
+
+.card-img {
+    object-fit: contain;
+    max-width: 90%;
 }
