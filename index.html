@@ -8,18 +8,18 @@
   </head>
   <body>
     <h1 class="header">make your own card</h1>
+    <form action="">
+      <label for="card">Card Title: </label>
+      <input type="text" name="card" id="input-title" /><br />
 
-    <label for="card">Card Title: </label>
-    <input type="text" name="card" id="input-title" /><br />
+      <label for="card-img">Card Image URL: </label>
+      <input type="text" name="card-img" id="input-img" /><br />
 
-    <label for="card-img">Card Image URL: </label>
-    <input type="text" name="card-img" id="input-img" /><br />
+      <label for="card-desc">Description: </label>
+      <input type="text" name="card-desc" id="input-desc" /><br />
 
-    <label for="card-desc">Description: </label>
-    <input type="text" name="card-desc" id="input-desc" /><br />
-
-    <button type="button" id="btn">Create Card</button>
-
+      <button type="button" id="btn">Create Card</button>
+    </form>
     <div id="container"></div>
     <script src="index.js"></script>
   </body>
@@ -31,4 +31,3 @@
 -Create a function that clears the input fields after injecting the object 
 -Create a function to remove an object after they have been created
  -->
-

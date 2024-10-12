@@ -7,30 +7,34 @@ const DOMSelectors = {
 };
 console.log(DOMSelectors.description);
 
-DOMSelectors.button.addEventListener("click", function () {
-  let title = DOMSelectors.titleInput.value;
-  let image = DOMSelectors.imageInput.value;
-  let description = DOMSelectors.descInput.value;
-
-  DOMSelectors.box.insertAdjacentHTML(
-    "beforeend",
-    `<div class="card" id="c${n}"> 
-        <h2>${title}</h2>
-        <img src="${image}" alt="" class="card-img">
-        <p>${description}</p>
-        <button type="button" id="b${n}></button>
-      </div>
-      `
-  );
-  document.querySelector(`#b${n}`).addEventListener("click", function (event) {
-    event.preventDefault();
-    document.querySelector(`#p${n}`).remove();
-  });
-
+function clearInput() {
   DOMSelectors.titleInput.value = "";
   DOMSelectors.imageInput.value = "";
   DOMSelectors.descInput.value = "";
-});
+}
+
+function removePrompt(num) {
+  DOMSelectors.box.removeChild(`c${num}`);
+}
+
+function addCard(num) {
+  DOMSelectors.box.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card" id="c${num}"> 
+        <h2>${DOMSelectors.titleInput.value}</h2>
+        <img src="${DOMSelectors.imageInput.value}" alt="" class="card-img">
+        <p>${DOMSelectors.descInput.value}</p>
+        <button type"button" id="b${num}">delete</button>
+      </div>
+      `
+  );
+  document
+    .querySelector(`#b${num}`)
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      document.querySelector(`#c${num}`).remove();
+    });
+}
 
 function run() {
   let n = 0;
@@ -38,11 +42,12 @@ function run() {
     if (
       !(
         DOMSelectors.titleInput.value === "" ||
-        DOMSelectors.descInput.value === ""
+        DOMSelectors.descInput.value === "" ||
+        DOMSelectors.imageInput.value === ""
       )
     ) {
       event.preventDefault();
-      box(n);
+      addCard(n);
       clearInput();
       n += 1;
     }

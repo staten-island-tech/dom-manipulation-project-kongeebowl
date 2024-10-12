@@ -8,6 +8,11 @@ input {
     background-color: cornsilk;
 }
 
+form,
+button {
+    font-size: 1.5rem;
+}
+
 h2 {
     font-size: 3rem;
     text-align: center;
@@ -47,6 +52,6 @@ p {
 
 .card-img {
     object-fit: contain;
-    max-width: 90%;
+    width: 90%;
 }
 
