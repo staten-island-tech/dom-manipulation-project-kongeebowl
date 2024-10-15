@@ -5,16 +5,11 @@ const DOMSelectors = {
   imageInput: document.getElementById("input-img"),
   descInput: document.getElementById("input-desc"),
 };
-console.log(DOMSelectors.description);
 
 function clearInput() {
   DOMSelectors.titleInput.value = "";
   DOMSelectors.imageInput.value = "";
   DOMSelectors.descInput.value = "";
-}
-
-function removePrompt(num) {
-  DOMSelectors.box.removeChild(`c${num}`);
 }
 
 function addCard(num) {
@@ -28,6 +23,14 @@ function addCard(num) {
       </div>
       `
   );
+  document
+    .querySelector(`#b${num}`)
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+    });
+}
+
+function removeCard(num) {
   document
     .querySelector(`#b${num}`)
     .addEventListener("click", function (event) {
@@ -49,6 +52,7 @@ function run() {
       event.preventDefault();
       addCard(n);
       clearInput();
+      removeCard(n);
       n += 1;
     }
   });
