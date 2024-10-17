@@ -12,49 +12,47 @@ function clearInput() {
   DOMSelectors.descInput.value = "";
 }
 
-function addCard(num) {
+function addCard(num, obj) {
   DOMSelectors.box.insertAdjacentHTML(
     "beforeend",
     `<div class="card" id="c${num}"> 
-        <h2>${DOMSelectors.titleInput.value}</h2>
-        <img src="${DOMSelectors.imageInput.value}" alt="" class="card-img">
-        <p>${DOMSelectors.descInput.value}</p>
+        <h2>${obj.title}</h2>
+        <img src="${obj.image}" alt="" class="card-img">
+        <p>${obj.desc}</p>
         <button type"button" id="b${num}">delete</button>
       </div>
       `
   );
   document
-    .querySelector(`#b${num}`)
+    .getElementById(`b${num}`)
     .addEventListener("click", function (event) {
       event.preventDefault();
+      removeCard(num);
     });
 }
 
 function removeCard(num) {
-  document
-    .querySelector(`#b${num}`)
-    .addEventListener("click", function (event) {
-      event.preventDefault();
-      document.querySelector(`#c${num}`).remove();
-    });
+  const card = document.getElementById(`c${num}`);
+  if (card) {
+    card.remove();
+  }
 }
 
 function run() {
   let n = 0;
+
   DOMSelectors.button.addEventListener("click", function (event) {
-    if (
-      !(
-        DOMSelectors.titleInput.value === "" ||
-        DOMSelectors.descInput.value === "" ||
-        DOMSelectors.imageInput.value === ""
-      )
-    ) {
-      event.preventDefault();
-      addCard(n);
-      clearInput();
-      removeCard(n);
-      n += 1;
-    }
+    event.preventDefault();
+
+    const infoRecieved = {
+      title: DOMSelectors.titleInput.value,
+      image: DOMSelectors.imageInput.value,
+      desc: DOMSelectors.descInput.value,
+    };
+
+    addCard(n, infoRecieved);
+    clearInput();
+    n += 1;
   });
 }
 
