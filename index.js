@@ -6,6 +6,8 @@ const DOMSelectors = {
   descInput: document.getElementById("input-desc"),
 };
 
+let n = 0;
+
 function clearInput() {
   DOMSelectors.titleInput.value = "";
   DOMSelectors.imageInput.value = "";
@@ -29,6 +31,7 @@ function addCard(num, obj) {
       event.preventDefault();
       removeCard(num);
     });
+  n += 1;
 }
 
 function removeCard(num) {
@@ -38,9 +41,7 @@ function removeCard(num) {
   }
 }
 
-function run() {
-  let n = 0;
-
+function gatherInfo() {
   DOMSelectors.button.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -52,8 +53,7 @@ function run() {
 
     addCard(n, infoRecieved);
     clearInput();
-    n += 1;
   });
 }
 
-run();
+gatherInfo();
